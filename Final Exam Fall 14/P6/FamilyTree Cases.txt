@@ -1,0 +1,57 @@
+t, r = f.cousin("b", "c")
+'b' is a zeroth cousin 0 removed from 'c'
+
+t, r = f.cousin("d", "f")
+'d' is a first cousin 0 removed from 'f'
+
+t, r = f.cousin("i", "n")
+'i' is a second cousin 0 removed from 'n'
+
+t, r = f.cousin("q", "e")
+'q' is a first cousin 1 removed from 'e'
+
+
+t, r = f.cousin("h", "c")
+'h' is a zeroth cousin 2 removed from 'c'
+
+
+t, r = f.cousin("h", "a")
+'h' is a non cousin 3 removed from 'a'
+
+t, r = f.cousin("h", "h")
+'h' is a non cousin 0 removed from 'h'
+
+t, r = f.cousin("a", "a")
+'a' is a non cousin 0 removed from 'a'
+
+
+t, r = f.cousin("p", "g")
+'p' is a non cousin 0 removed from 'g'
+t, r = f.cousin("p", "g")
+'p' is a non cousin 1 removed from 'g'
+
+
+t, r = f.cousin("k", "m")
+'k' is a second cousin 0 removed from 'm'
+
+
+t, r = f.cousin("l", "d")
+'l' is a first cousin 1 removed from 'd'
+
+
+t, r = f.cousin("i", "p")
+'i' is a second cousin 0 removed from 'p'
+
+t, r = f.cousin("b", "q")
+'b' is a zeroth cousin 2 removed from 'q'
+
+
+t, r = f.cousin("i", "p")
+'i' is a second cousin 0 removed from 'p'
+
+t, r = f.cousin("j", "a")
+'j' is a non cousin 3 removed from 'a'
+
+
+t, r = f.cousin("l", "g")
+'l' is a zeroth cousin 1 removed from 'g'
