@@ -132,22 +132,23 @@ class Family(object):
         
         ## YOUR CODE HERE ####
         ##raise NotImplementedError()
-        a_node = self.names_to_nodes[a]
-        b_node = self.names_to_nodes[b]
+        a = self.names_to_nodes[a]
+        b = self.names_to_nodes[b]
         
         # test if they are the same
         if a == b:
             return (-1, 0)
         # test if one of both is a parent
-        if a_node.is_parent(b_node) or b_node.is_parent(a_node):
-            return (-1, 0)
+        if a.is_parent(b) or b.is_parent(a):
+            return (-1, 1)
         # go up to the first level to count how many levels
         # levels will be counted in counterA and counterB
         counterA = 0
         counterB = 0
-        tempParentA = a_node
-        tempParentB = b_node
+        tempParentA = a
+        tempParentB = b
         removed = 0
+        cType = -1
         while (tempParentA.get_parent() != None):
             counterA += 1
             tempParentA = tempParentA.get_parent()    
@@ -159,6 +160,20 @@ class Family(object):
             removed = counterA - counterB
         if counterB > counterA:
             removed = counterB - counterA
+        tempParentA = a
+        tempParentB = b
+        if removed != 0:
+            for r in range(removed):
+                if counterA > counterB:
+                    tempParentA = tempParentA.get_parent()
+                if counterB > counterA:
+                    tempParentB = tempParentB.get_parent()
+        while (tempParentB != tempParentA):
+            cType += 1
+            tempParentA = tempParentA.get_parent()
+            tempParentB = tempParentB.get_parent()
+        return (cType, removed)
+
         
 
 
